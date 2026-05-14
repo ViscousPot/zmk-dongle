@@ -132,6 +132,10 @@ static int proteus_bonds_init(void)
 }
 
 /* Must run BEFORE bt_enable(). ZMK's BLE init is at
- * APPLICATION/CONFIG_ZMK_BLE_INIT_PRIORITY (default 50).
+ * APPLICATION priority 50 (CONFIG_ZMK_BLE_INIT_PRIORITY). SYS_INIT
+ * stringifies its third arg into a section name, so it must be a literal
+ * integer — arithmetic on the Kconfig symbol won't preprocess correctly.
  */
-SYS_INIT(proteus_bonds_init, APPLICATION, CONFIG_ZMK_BLE_INIT_PRIORITY - 1);
+BUILD_ASSERT(CONFIG_ZMK_BLE_INIT_PRIORITY == 50,
+	     "ZMK_BLE_INIT_PRIORITY changed; update SYS_INIT literal below");
+SYS_INIT(proteus_bonds_init, APPLICATION, 49);
