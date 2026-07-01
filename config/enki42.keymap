@@ -1,0 +1,233 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        hml: homewrow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <6 18 30 40 41 19 7 7 8 9 10 11 19 20 21 22 23 31 32 33 34 35 41 18 19 30 31 39 40>;
+            flavor = "balanced";
+        };
+
+        hmr: homewrow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+            flavor = "balanced";
+        };
+
+        sticky_tap: sticky_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "STICKY_TAP";
+            bindings = <&sk>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
+
+        double_tap: double_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOUBLE_TAP";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp LS(LCTRL)>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        soft_off {
+            bindings = <&soft_off>;
+            key-positions = <13 14 16 15 19 20 21 22>;
+            layers = <0>;
+        };
+
+        parentheses {
+            bindings = <&parentheses>;
+            key-positions = <20 21>;
+            layers = <1>;
+        };
+
+        square_braces {
+            bindings = <&braces>;
+            key-positions = <8 9>;
+            layers = <1>;
+        };
+
+        curly_brackets {
+            bindings = <&curly_brackets>;
+            key-positions = <32 33>;
+            layers = <1>;
+        };
+
+        dqp {
+            bindings = <&double_quote_parentheses>;
+            key-positions = <19 20>;
+            layers = <1>;
+        };
+
+        sqp {
+            bindings = <&single_quote_parentheses>;
+            key-positions = <20 7>;
+            layers = <1>;
+        };
+
+        dqs {
+            bindings = <&double_quote_square_brackets>;
+            key-positions = <8 19>;
+            layers = <1>;
+        };
+
+        sqs {
+            bindings = <&single_quote_square_brackets>;
+            key-positions = <8 7>;
+            layers = <1>;
+        };
+
+        dqc {
+            bindings = <&double_quote_curly_brackets>;
+            key-positions = <32 19>;
+            layers = <1>;
+        };
+
+        sqc {
+            bindings = <&single_quote_curly_brackets>;
+            key-positions = <32 7>;
+            layers = <1>;
+        };
+
+        nav_combo {
+            bindings = <&sl 2>;
+            key-positions = <20 21>;
+            layers = <0>;
+        };
+
+        num_combo {
+            bindings = <&sl 1>;
+            key-positions = <19 20>;
+        };
+
+        symbol_combo {
+            bindings = <&sl 1>;
+            key-positions = <15 16>;
+        };
+    };
+
+    macros {
+        parentheses: Parentheses {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+            label = "PARENTHESES";
+        };
+
+        braces: Braces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>;
+            label = "BRACES";
+        };
+
+        curly_brackets: curly_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+            label = "CURLY_BRACKETS";
+        };
+
+        single_quote_parentheses: single_quote_parentheses {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR &kp SQT &kp SQT &kp RPAR &kp LEFT &kp LEFT>;
+            label = "SINGLE_QUOTE_PARENTHESES";
+        };
+
+        double_quote_parentheses: double_quote_parentheses {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR &kp DQT &kp DQT &kp RPAR &kp LEFT &kp LEFT>;
+            label = "DOUBLE_QUOTE_PARENTHESES";
+        };
+
+        single_quote_square_brackets: single_quote_square_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT &kp SQT &kp SINGLE_QUOTE &kp RIGHT_BRACKET &kp LEFT &kp LEFT>;
+            label = "SINGLE_QUOTE_SQUARE_BRACKETS";
+        };
+
+        double_quote_square_brackets: double_quote_square_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp DQT &kp DQT &kp RIGHT_BRACKET &kp LEFT &kp LEFT>;
+            label = "DOUBLE_QUOTE_SQUARE_BRACKETS";
+        };
+
+        single_quote_curly_brackets: single_quote_curly_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp SQT &kp SINGLE_QUOTE &kp RBRC &kp LEFT &kp LEFT>;
+            label = "SINGLE_QUOTE_CURLY_BRACKETS";
+        };
+
+        double_quote_curly_brackets: double_quote_curly_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp DQT &kp DQT &kp RBRC &kp LEFT &kp LEFT>;
+            label = "DOUBLE_QUOTE_CURLY_BRACKETS";
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
+            bindings = <
+&kp ESCAPE     &kp Q  &kp W  &kp E            &kp R                  &kp T     &kp Y  &kp U                       &kp I              &kp O                    &kp P          &hmr STAR BACKSLASH
+&hml CAPS TAB  &kp A  &kp S  &hml LEFT_WIN D  &kp F                  &kp G     &kp H  &kp J                       &hmr RIGHT_WIN K   &kp L                    &kp SEMICOLON  &kp ENTER
+&kp LEFT_ALT   &kp Z  &kp X  &kp C            &kp V                  &kp B     &kp N  &kp M                       &kp COMMA          &hmr EXCLAMATION PERIOD  &kp SLASH      &kp RIGHT_ALT
+                             &double_tap      &hml LEFT_SHIFT SPACE  &trans    &sl 1  &hmr RIGHT_SHIFT BACKSPACE  &hmr RCTRL DELETE
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+&kp GRAVE  &trans  &hml F7 NUMBER_7  &hml F8 NUMBER_8  &hml F9 NUMBER_9  &kp F10    &kp MINUS       &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH   &kp DOLLAR
+&kp TILDE  &trans  &hml F4 NUMBER_4  &hml F5 NUMBER_5  &hml F6 NUMBER_6  &kp F11    &kp UNDERSCORE  &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT     &kp PERCENT
+&trans     &trans  &hml F1 NUMBER_1  &hml F2 NUMBER_2  &hml F3 NUMBER_3  &kp F12    &kp EQUAL       &kp PLUS           &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp CARET  &kp AMPERSAND
+                                     &kp NUMBER_0      &trans            &to 0      &to 2           &trans             &trans
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+&bt BT_SEL 0  &bt BT_SEL 1  &kp HOME        &kp UP_ARROW    &kp END          &trans    &kp PAGE_UP    &kp C_VOLUME_UP    &kp C_NEXT        &trans  &trans  &trans
+&bt BT_SEL 2  &bt BT_SEL 3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans    &kp PAGE_DOWN  &kp C_VOLUME_DOWN  &kp C_PREV        &trans  &trans  &trans
+&trans        &trans        &trans          &trans          &trans           &trans    &trans         &kp C_MUTE         &kp C_PLAY_PAUSE  &trans  &trans  &soft_off
+                                            &trans          &trans           &to 0     &to 3          &trans             &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&kp ESCAPE  &trans     &kp Q   &kp W           &kp E      &kp T     &trans  &trans  &trans  &trans  &trans  &bt BT_CLR
+&trans      &kp LCTRL  &kp A   &kp S           &kp D      &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans     &trans  &trans          &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                               &kp LEFT_SHIFT  &kp SPACE  &to 0     &trans  &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers { compatible = "zmk,conditional-layers"; };
+};
