@@ -1,7 +1,8 @@
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     behaviors {
@@ -207,37 +208,37 @@
 
         layer_0 {
             bindings = <
-&kp ESCAPE     &kp Q  &kp W  &kp E            &kp R                  &kp T     &kp Y  &kp U                       &kp I              &kp O                    &kp P          &hmr STAR BACKSLASH
-&hml CAPS TAB  &kp A  &kp S  &hml LEFT_WIN D  &kp F                  &kp G     &kp H  &kp J                       &hmr RIGHT_WIN K   &kp L                    &kp SEMICOLON  &kp ENTER
-&kp LEFT_ALT   &kp Z  &kp X  &kp C            &kp V                  &kp B     &kp N  &kp M                       &kp COMMA          &hmr EXCLAMATION PERIOD  &kp SLASH      &kp RIGHT_ALT
-                             &double_tap      &hml LEFT_SHIFT SPACE  &trans    &sl 1  &hmr RIGHT_SHIFT BACKSPACE  &hmr RCTRL DELETE
+&kp ESCAPE     &kp Q  &kp W  &kp E            &kp R                  &kp T   &kp Y  &kp U                       &kp I              &kp O                    &kp P          &hmr STAR BACKSLASH
+&hml CAPS TAB  &kp A  &kp S  &hml LEFT_WIN D  &kp F                  &kp G   &kp H  &kp J                       &hmr RIGHT_WIN K   &kp L                    &kp SEMICOLON  &kp ENTER
+&kp LEFT_ALT   &kp Z  &kp X  &kp C            &kp V                  &kp B   &kp N  &kp M                       &kp COMMA          &hmr EXCLAMATION PERIOD  &kp SLASH      &kp RIGHT_ALT
+                             &double_tap      &hml LEFT_SHIFT SPACE  &trans  &sl 1  &hmr RIGHT_SHIFT BACKSPACE  &hmr RCTRL DELETE
             >;
         };
 
         layer_1 {
             bindings = <
-&kp GRAVE  &trans  &hml F7 NUMBER_7  &hml F8 NUMBER_8  &hml F9 NUMBER_9  &kp F10    &kp MINUS       &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH   &kp DOLLAR
-&kp TILDE  &trans  &hml F4 NUMBER_4  &hml F5 NUMBER_5  &hml F6 NUMBER_6  &kp F11    &kp UNDERSCORE  &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT     &kp PERCENT
-&trans     &trans  &hml F1 NUMBER_1  &hml F2 NUMBER_2  &hml F3 NUMBER_3  &kp F12    &kp EQUAL       &kp PLUS           &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp CARET  &kp AMPERSAND
-                                     &kp NUMBER_0      &trans            &to 0      &to 2           &trans             &trans
+&kp GRAVE  &trans  &hml F7 NUMBER_7  &hml F8 NUMBER_8  &hml F9 NUMBER_9  &kp F10  &kp MINUS       &kp SINGLE_QUOTE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH   &kp DOLLAR
+&kp TILDE  &trans  &hml F4 NUMBER_4  &hml F5 NUMBER_5  &hml F6 NUMBER_6  &kp F11  &kp UNDERSCORE  &kp DOUBLE_QUOTES  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT     &kp PERCENT
+&trans     &trans  &hml F1 NUMBER_1  &hml F2 NUMBER_2  &hml F3 NUMBER_3  &kp F12  &kp EQUAL       &kp PLUS           &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp CARET  &kp AMPERSAND
+                                     &kp NUMBER_0      &trans            &to 0    &to 2           &trans             &trans
             >;
         };
 
         layer_2 {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &kp HOME        &kp UP_ARROW    &kp END          &trans    &kp PAGE_UP   &mkp SCRL_LEFT  &mkp SCRL_RIGHT  &trans  &trans  &trans
-&bt BT_SEL 2  &bt BT_SEL 3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans    &kp PAGE_DOWN &mkp MB1       &mkp MB2         &trans  &trans  &trans
-&trans        &trans        &trans          &trans          &trans           &trans    &trans        &trans          &trans           &trans  &trans  &soft_off
-                                            &trans          &trans           &to 0     &to 3          &trans             &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &kp HOME        &kp UP_ARROW    &kp END          &trans  &trans  &mkp SCRL_LEFT  &mkp SCRL_RIGHT  &trans  &trans  &trans
+&bt BT_SEL 2  &bt BT_SEL 3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans  &mkp MB1        &mkp MB2         &trans  &trans  &trans
+&trans        &trans        &trans          &trans          &trans           &trans  &trans  &trans          &trans           &trans  &trans  &soft_off
+                                            &trans          &trans           &to 0   &to 3   &trans          &trans
             >;
         };
 
         layer_3 {
             bindings = <
-&kp ESCAPE  &trans     &kp Q   &kp W           &kp E      &kp T     &trans  &trans  &trans  &trans  &trans  &bt BT_CLR
-&trans      &kp LCTRL  &kp A   &kp S           &kp D      &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans     &trans  &trans          &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                               &kp LEFT_SHIFT  &kp SPACE  &to 0     &trans  &trans  &trans
+&kp ESCAPE  &trans     &kp Q   &kp W           &kp E      &kp T   &trans  &trans  &trans  &trans  &trans  &bt BT_CLR
+&trans      &kp LCTRL  &kp A   &kp S           &kp D      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans     &trans  &trans          &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                               &kp LEFT_SHIFT  &kp SPACE  &to 0   &trans  &trans  &trans
             >;
         };
     };
