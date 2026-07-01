@@ -136,6 +136,11 @@
             key-positions = <31 32>;
             layers = <2>;
         };
+
+        mouse_combo {
+            bindings = <&sl 2>;
+            key-positions = <14 15>;
+        };
     };
 
     macros {
