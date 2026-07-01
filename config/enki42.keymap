@@ -118,11 +118,13 @@
         num_combo {
             bindings = <&sl 1>;
             key-positions = <19 20>;
+            layers = <0>;
         };
 
         symbol_combo {
             bindings = <&sl 1>;
             key-positions = <15 16>;
+            layers = <0>;
         };
 
         u_i_scroll_up {
@@ -140,6 +142,7 @@
         mouse_combo {
             bindings = <&sl 2>;
             key-positions = <14 15>;
+            layers = <0>;
         };
     };
 
