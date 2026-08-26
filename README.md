@@ -4,9 +4,15 @@
 
 ZMK config for **Board in the Shell**. Uses 3 nRF52840 controllers: one dongle, one left half, one right half. The dongle is the central and the halves are peripherals, which is much better for battery life. See the [ZMK Power Profiler](https://zmk.dev/power-profiler).
 
-Project homepage: https://bits.viscouspotenti.al/ - model files, full instructions, and a one-click pipeline for building new firmware.
+![Board in the Shell](image.png)
 
-The default keymap is my daily driver layout, swap it out for your own.
+
+Project homepage: https://bits.viscouspotenti.al/
+- model files
+- full instruction
+- one-click firmware build pipeline
+
+The default keymap is **my** daily driver layout, swap it out for your own.
 
 ## Building your own firmware
 
